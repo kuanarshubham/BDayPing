@@ -1,0 +1,22 @@
+{
+  "name": "bdayping",
+  "version": "1.0.0",
+  "description": "WhatsApp Reminder Bot for Birthdays",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "dotenv": "^18.0.1",
+    "express": "^4.19.2",
+    "mongo-baileys": "^1.0.1",
+    "mongodb": "^6.8.0",
+    "node-cron": "^3.0.3",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
