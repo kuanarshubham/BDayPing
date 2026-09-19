@@ -24,7 +24,7 @@ Interact with the bot by sending these commands from your WhatsApp number:
 
 ## 🛠️ Prerequisites
 
-- **Node.js** (v18 or higher)
+- **Node.js** (v20 or higher)
 - **MongoDB Atlas** (Free tier works perfectly)
 - A WhatsApp account
 
