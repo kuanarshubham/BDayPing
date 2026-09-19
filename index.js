@@ -17,6 +17,14 @@ if (!MONGO_URI || !OWNER_JID) {
     process.exit(1);
 }
 
+// Prevent Baileys from crashing the app on unhandled connection errors
+process.on('uncaughtException', (err) => {
+    console.error('Caught exception: ', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
 // Initialize Express server
 const app = express();
 app.get('/ping', (req, res) => {
@@ -34,7 +42,7 @@ async function startBot() {
 
     const db = mongoClient.db();
     const birthdaysCollection = db.collection('birthdays');
-    const authCollection = db.collection('auth_sessions_v2');
+    const authCollection = db.collection('auth_sessions_v3');
 
     // Create an index on the 'date' field to make searches O(log N) instead of O(N)
     await birthdaysCollection.createIndex({ date: 1 });
