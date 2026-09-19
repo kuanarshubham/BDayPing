@@ -36,6 +36,9 @@ async function startBot() {
     const birthdaysCollection = db.collection('birthdays');
     const authCollection = db.collection('auth_sessions_v2');
 
+    // Create an index on the 'date' field to make searches O(log N) instead of O(N)
+    await birthdaysCollection.createIndex({ date: 1 });
+
     const { state, saveCreds } = await useMongoDBAuthState(authCollection);
 
     async function connectToWhatsApp() {
